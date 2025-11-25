@@ -1,10 +1,10 @@
 <div align="center">
   <img alt="react simple icons" src="https://github.com/icons-pack/react-simple-icons/blob/main/docs/images/svg/react-simple-icons.svg" width="150" />
 
-# react-simple-icons
+# react-native-simple-icons
 
 This package provides the [Simple Icons 15.20.0](https://github.com/simple-icons/simple-icons/releases/tag/15.20.0)
-packaged as a set of [React](https://facebook.github.io/react/) components.
+packaged as a set of [React Native](https://reactnative.dev/) components.
 
   [![www.npmjs.com!](https://img.shields.io/npm/v/@icons-pack/react-simple-icons?color=CB061D&style=flat-square)](https://www.npmjs.com/package/@icons-pack/react-simple-icons)
   [![downloads](https://img.shields.io/npm/dw/@icons-pack/react-simple-icons?color=087BB4&style=flat-square)](https://www.npmjs.com/package/@icons-pack/react-simple-icons)
@@ -13,10 +13,10 @@ packaged as a set of [React](https://facebook.github.io/react/) components.
 
 ## Installation
 
-Install the package in your project directory with:
+Install the package and its peer dependency `react-native-svg` in your project directory with:
 
 ```shell
-npm i @icons-pack/react-simple-icons
+npm i @icons-pack/react-simple-icons react-native-svg
 ```
 
 > TypeScript Support
@@ -31,10 +31,6 @@ that the names of the icons are [upperCamelCase](https://github.com/samverschuer
 - [`azure devOps`](https://simpleicons.org/?q=azure%20devOps) is exposed as
   `{ SiAzuredevops } from @icons-pack/react-simple-icons`
 
-## Demo
-
-[Edit codesandbox](https://codesandbox.io/s/interesting-yonath-x7o7g?file=/src/App.js)
-
 ## Basic example
 
 ```jsx
@@ -45,20 +41,20 @@ function BasicExample() {
 }
 ```
 
-## Change title
+## Change title (Accessibility Label)
 
-`@icons-pack/react-simple-icons` provides a default title referring to the component name
-
-> The `<title>` element provides an accessible, short-text description of any SVG container element or graphics element.
+Each icon has a default `title` prop that corresponds to the icon name. In React Native, this prop is mapped to `accessibilityLabel` for screen reader support.
 
 ```jsx
 import { SiReact } from '@icons-pack/react-simple-icons';
 
-// title default "React"
+// Default title/accessibilityLabel is "React"
 function ChangeTitle() {
-  return <SiReact title='My title' color='#61DAFB' size={24} />;
+  return <SiReact title='Custom React Icon' color='#61DAFB' size={24} />;
 }
 ```
+
+> **Note**: The `title` prop sets the `accessibilityLabel` for the icon. You can also pass `accessibilityLabel` directly via the spread props if needed.
 
 ## Use default color
 
@@ -86,17 +82,12 @@ function DefaultColorExample() {
 
 ## Custom styles
 
+You can pass any `SvgProps` from `react-native-svg` to the component.
+
 ```jsx
 import { SiReact } from '@icons-pack/react-simple-icons';
 
 function CustomStyles() {
-  return <SiReact className='myStyle' />;
-}
-```
-
-```css
-.myStyle {
-  width: 35px;
-  height: 35px;
+  return <SiReact style={{ opacity: 0.5 }} />;
 }
 ```

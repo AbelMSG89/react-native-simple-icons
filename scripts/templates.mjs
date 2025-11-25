@@ -8,10 +8,12 @@ export default ${componentName};\n`;
 export const iconComponenteTemplate = (componentName, title, colorHex, path) => {
   return `
     import * as React from 'react';
+    import Svg, { Path } from 'react-native-svg';
+    import type { SvgProps } from 'react-native-svg';
 
     import { IconType } from '../types';
 
-    type ${componentName}Props = React.ComponentPropsWithoutRef<'svg'> & {
+    type ${componentName}Props = SvgProps & {
       /**
        * The title provides an accessible short text description to the SVG
        */
@@ -28,24 +30,23 @@ export const iconComponenteTemplate = (componentName, title, colorHex, path) => 
 
     const defaultColor = '${colorHex}';
 
-    const ${componentName}: IconType = React.forwardRef<SVGSVGElement, ${componentName}Props>(function ${componentName}({title = '${title}', color = 'currentColor', size = 24, ...others }, ref) {
+    const ${componentName}: IconType = React.forwardRef<Svg, ${componentName}Props>(function ${componentName}({ title = '${title}', color = 'currentColor', size = 24, ...others }, ref) {
       if (color === 'default') {
         color = defaultColor;
       }
 
       return (
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
+        <Svg
           width={size}
           height={size}
           fill={color}
           viewBox='0 0 24 24'
           ref={ref}
+          accessibilityLabel={title}
           {...others}
         >
-          <title>{title}</title>
-          <path d='${path}' />
-        </svg>
+          <Path d='${path}' />
+        </Svg>
       );
     });
 
