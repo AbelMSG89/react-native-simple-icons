@@ -1,5 +1,11 @@
 # Changelog
 
+## 14.0.0
+
+### Major Changes (React Native Port)
+
+- Ported `react-simple-icons` to React Native so every icon component now relies on `react-native-svg` props and accessibility labels, keeping the public API for compatibility.
+
 ## 13.10.0
 
 ### Minor Changes
