@@ -40,6 +40,7 @@ export default defineConfig({
           preserveModulesRoot: 'src',
           exports: 'named',
           entryFileNames: '[name].cjs',
+          interop: 'default',
         },
         {
           format: 'es',
@@ -47,6 +48,7 @@ export default defineConfig({
           preserveModulesRoot: 'src',
           exports: 'named',
           entryFileNames: '[name].mjs',
+          interop: 'default',
         },
       ],
     },

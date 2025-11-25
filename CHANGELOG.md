@@ -1,5 +1,9 @@
 # Changelog
 
+## 14.1.0
+
+- Fixed icon import issues in React Native caused by CommonJS and ESM interoperability with react-native-svg. The generated files now correctly import the Svg component using the default export, preventing runtime type errors.
+
 ## 14.0.1
 
 ### Patch Changes
