@@ -1,5 +1,11 @@
 # Changelog
 
+## 14.0.1
+
+### Patch Changes
+
+- Update package.json to ensure consistency with the npm package publication.
+
 ## 14.0.0
 
 ### Major Changes (React Native Port)
